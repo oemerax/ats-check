@@ -1,0 +1,12 @@
+# Test and fixture dependencies (not needed by the skill at runtime).
+pytest
+pyyaml
+reportlab
+pillow
+fonttools
+pypdf
+pdfplumber
+pdfminer.six
+pymupdf
+# Also needed: the poppler-utils package (pdftotext binary) and DejaVu fonts
+# (fonts-dejavu-core), e.g. `apt-get install poppler-utils fonts-dejavu-core`.

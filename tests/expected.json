@@ -1,0 +1,96 @@
+{
+  "_comment": "Expected findings per fixture, measured with all five extractors available. 'must': ids that have to appear. 'allowed': ids that may appear, each with a reason. Every other id in FINDING_CATALOGUE must NOT appear: a false positive fails like a false negative. 'forbid_severity': severities that must not occur at all.",
+  "fixtures": {
+    "01_clean_de": {
+      "must": [],
+      "allowed": {},
+      "forbid_severity": ["P0"],
+      "columns": [],
+      "note": "Single column, German with umlauts, tabular dates beside titles (label/value layout, must not count as two columns)."
+    },
+    "02_two_column": {
+      "must": ["reading_order_mixed"],
+      "allowed": {},
+      "columns": [1],
+      "note": "Sidebar layout, content stream alternates left/right per row. Mixing is measured in the extractors' output, not inferred from the columns."
+    },
+    "02b_two_column_streamwise": {
+      "must": ["reading_order_mixed"],
+      "allowed": {},
+      "columns": [1],
+      "clean_extractors": ["pypdf", "pymupdf"],
+      "note": "Same layout, content stream column by column. pypdf and PyMuPDF follow the stream and keep the columns apart; they must not be named as mixing."
+    },
+    "03_header_contact": {
+      "must": ["contact_in_header_footer"],
+      "allowed": {},
+      "note": "Two pages, contact only in a header row repeated on both pages."
+    },
+    "03b_header_artifact": {
+      "must": ["contact_in_header_footer"],
+      "allowed": {},
+      "note": "One page, contact only inside marked content /Artifact /Subtype /Header."
+    },
+    "04_icon_font": {
+      "must": ["garbage_chars"],
+      "allowed": {},
+      "note": "Contact line with icon glyphs mapped to the Private Use Area."
+    },
+    "05_table": {
+      "must": ["table_detected"],
+      "allowed": {},
+      "columns": [],
+      "note": "Experience as a ruled table. Table cells must not be reported as columns."
+    },
+    "06_image_only": {
+      "must": ["text_is_image"],
+      "allowed": {"images_present": "the page is one image; the image finding is a true statement about the file"},
+      "note": "Whole page is a raster image, no text layer."
+    },
+    "07_outlines": {
+      "must": ["text_is_outlines"],
+      "allowed": {},
+      "note": "All glyphs drawn as filled paths. Straight glyph edges must not be mistaken for table rules."
+    },
+    "08_letter_spaced": {
+      "must": ["letter_spacing", "sections_missing", "profile_missing", "extractor_disagreement"],
+      "allowed": {},
+      "note": "Headings set with 6 pt character spacing. Extractors split them into single letters, so headings are not recognised (sections_missing, profile_missing), and extractors that do and do not split disagree."
+    },
+    "09_oversize": {
+      "must": ["file_size_over_limit", "images_present"],
+      "allowed": {},
+      "note": "Clean CV plus an incompressible photo; file above 2.5 MB."
+    },
+    "10_three_pages": {
+      "must": ["page_count_high"],
+      "allowed": {},
+      "note": "Clean CV on three pages."
+    },
+    "11_ligatures_mapped": {
+      "must": [],
+      "allowed": {},
+      "note": "Ligature glyphs fi/fl whose ToUnicode CMap maps them to 'fi'/'fl'. Ligatures in the typesetting alone are no finding."
+    },
+    "11b_ligatures_unmapped": {
+      "must": ["ligatures_in_text"],
+      "allowed": {},
+      "note": "Control case: ToUnicode maps the glyphs to U+FB01/U+FB02, so the extracted text contains ligature characters."
+    },
+    "12_bullets_no_evidence": {
+      "must": ["bullets_without_evidence", "adjectives_without_evidence"],
+      "allowed": {},
+      "note": "Task-only bullets and a profile of soft-skill adjectives."
+    },
+    "13_contact_links_only": {
+      "must": ["contact_only_in_links"],
+      "allowed": {},
+      "note": "Visible words 'E-Mail', 'Telefon', 'LinkedIn'; addresses only in link annotations."
+    },
+    "14_skill_bars": {
+      "must": ["skill_bars"],
+      "allowed": {},
+      "note": "Four skill levels shown only as filled bars."
+    }
+  }
+}

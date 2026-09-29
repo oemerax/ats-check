@@ -1,0 +1,21 @@
+{
+  "name": "ats-check",
+  "owner": {
+    "name": "Ömer Akyürek"
+  },
+  "metadata": {
+    "description": "ats-check: shows what a CV parser reads from a PDF, with evidence-labelled findings",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "ats-check",
+      "description": "Checks a CV/resume PDF the way a text parser reads it: extracted text, prioritized findings labelled measured/documented/heuristic, before/after improvements, optional job-ad match. No score.",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/ats-check"
+      ]
+    }
+  ]
+}
