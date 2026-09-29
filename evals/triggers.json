@@ -1,0 +1,28 @@
+{
+  "skill": "ats-check",
+  "status": "NOT MEASURED",
+  "status_note": "Triggering could not be measured in the build environment: there is no claude.ai session in which the skill is installed. Run these prompts in claude.ai with the skill enabled (and, for cases with attachments, the named kind of file uploaded) and record whether ats-check was used.",
+  "cases": [
+    {"query": "Kannst du meinen Lebenslauf prüfen?", "attachments": ["Lebenslauf_Mueller.pdf"], "should_trigger": true},
+    {"query": "check my CV please", "attachments": ["cv_2026.pdf"], "should_trigger": true},
+    {"query": "Is my resume ATS-friendly?", "attachments": ["resume.pdf"], "should_trigger": true},
+    {"query": "Ich bekomme auf meine Bewerbungen nie eine Antwort. Woran könnte das liegen?", "attachments": ["Bewerbung_Lebenslauf.pdf"], "should_trigger": true},
+    {"query": "Here is my resume and the job posting I want. How well do I match?", "attachments": ["resume.pdf"], "should_trigger": true},
+    {"query": "Was sieht ein Bewerbermanagementsystem, wenn es meinen CV einliest?", "attachments": ["CV.pdf"], "should_trigger": true},
+    {"query": "Bitte schau über meine Bewerbungsunterlagen, bevor ich sie abschicke.", "attachments": ["Unterlagen.pdf"], "should_trigger": true},
+    {"query": "Can you review this before I apply to Siemens?", "attachments": ["Jane_Doe_Resume.pdf"], "should_trigger": true},
+    {"query": "Mein Lebenslauf wurde mit Canva erstellt – liest ein Recruiting-Tool den überhaupt richtig?", "attachments": ["lebenslauf_canva.pdf"], "should_trigger": true},
+    {"query": "", "attachments": ["Lebenslauf.pdf"], "should_trigger": true, "note": "upload only, no text"},
+    {"query": "What would an applicant tracking system extract from this?", "attachments": ["resume_final_v3.pdf"], "should_trigger": true},
+    {"query": "Schreib mir ein Anschreiben für eine Stelle als Projektmanagerin.", "attachments": [], "should_trigger": false},
+    {"query": "Fasse dieses PDF zusammen.", "attachments": ["Quartalsbericht_Q2.pdf"], "should_trigger": false},
+    {"query": "Summarize this research paper in five bullet points.", "attachments": ["paper.pdf"], "should_trigger": false},
+    {"query": "Wie viele Bewerber hatten wir letztes Jahr im Schnitt pro Stelle?", "attachments": [], "should_trigger": false},
+    {"query": "Write a job description for a senior data engineer.", "attachments": [], "should_trigger": false},
+    {"query": "Übersetze diesen Vertrag ins Englische.", "attachments": ["Mietvertrag.pdf"], "should_trigger": false},
+    {"query": "Which applicant tracking system should our 50-person company buy?", "attachments": [], "should_trigger": false},
+    {"query": "Extract the tables from this invoice into a spreadsheet.", "attachments": ["invoice_0423.pdf"], "should_trigger": false},
+    {"query": "Merge these two PDFs into one file.", "attachments": ["a.pdf", "b.pdf"], "should_trigger": false},
+    {"query": "Hilf mir, mich auf ein Vorstellungsgespräch vorzubereiten.", "attachments": [], "should_trigger": false}
+  ]
+}
